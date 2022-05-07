@@ -1,11 +1,10 @@
 window.onload = () => {
   const tgApp = window.Telegram.WebApp;
-  const appContainer = document.getElementById("app");
   
   appContainer.innerHTML
 
-  app = {
-    appContainer,
+  App = {
+    appContainer: document.getElementById("app"),
     resize: (h) => {
       this.appContainer.style.height = h;
     },
@@ -23,7 +22,7 @@ window.onload = () => {
       this.appContainer.appendChild(frag);
     }
   }
-
+  app = new App();
   app.init()
 
 }
