@@ -19,12 +19,13 @@ class App {
 
   init() {
     this.resize(this.tg.viewportStableHeight);
+    if (!Array.isArray(this.content)) this.content = [this.content];
     if (!this.content.length) {
       return this.appContainer.innerHTML = "<h2>Is empty app</h2>"
     }
 
     const frag = new DocumentFragment();
-    for (const block in this.content) {
+    for (const block of this.content) {
       frag.appendChild(block);
     }
     this.appContainer.appendChild(frag);

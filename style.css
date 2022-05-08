@@ -2,3 +2,22 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+a {
+  color: var(--tg-theme-link-color);
+}
+
+button {
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  width: 10rem;
+  height: 10vh;
+}
