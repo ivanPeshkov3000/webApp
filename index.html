@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebApp</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="./app.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app" class="app"></div>
-  <script src="./code.js"></script>
+  <script>
+    (()=>{
+      const app = new App();
+      app.init()
+    })()
+  </script>
 </body>
 </html>
