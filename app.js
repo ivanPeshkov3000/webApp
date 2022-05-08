@@ -1,5 +1,5 @@
 class App {
-  constructor(telegramSpace = window.Telegram.WebApp, content = []) {
+  constructor(content = [], telegramSpace = window.Telegram.WebApp) {
     this.tg = telegramSpace || (() => {
       throw new Error("Not load Telegram WebApp")
     })()

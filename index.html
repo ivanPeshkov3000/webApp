@@ -12,7 +12,13 @@
   <div id="app" class="app"></div>
   <script>
     (()=>{
-      const app = new App();
+      const but = document.createElement('button');
+      but.className = "cmn";
+      but.addEventListener('click', (e) => {
+        alert(e)
+      })
+
+      const app = new App([but]);
       app.init()
     })()
   </script>
