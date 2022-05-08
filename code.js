@@ -1,13 +1,18 @@
 window.onload = () => {
   const tgApp = window.Telegram.WebApp;
 
-  const App = {
-    appContainer: document.getElementById("app"),
-    resize: (h) => {
+  class App {
+    constructor(content = []) {
+      this.content = content;
+      this.appContainer = document.getElementById("app")
+
+    };
+    
+    resize(h) {
       this.appContainer.style.height = h;
-    },
-    content: [],
-    init: () => {
+    }
+    
+    init() {
       this.resize(tgApp.viewportStableHeight);
       if (!this.content.length) {
         return this.appContainer.innerHTML = "<h2>Is empty app</h2>"
