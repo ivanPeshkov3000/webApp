@@ -18,7 +18,7 @@ class App {
   }
 
   init() {
-    this.resize(tgApp.viewportStableHeight);
+    this.resize(this.tg.viewportStableHeight);
     if (!this.content.length) {
       return this.appContainer.innerHTML = "<h2>Is empty app</h2>"
     }
