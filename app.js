@@ -1,33 +1,52 @@
 class App {
-  constructor(content = [], telegramSpace = window.Telegram.WebApp) {
-    this.tg = telegramSpace || (() => {
+  constructor(content = [], tgWorkspace = window.Telegram.WebApp) {
+    if (!window || !window.length) throw new Error("Window object not detected")
+    this.tg = tgWorkspace || (() => {
       throw new Error("Not load Telegram WebApp")
     })()
+
     this.content = content;
+
     this.appContainer = document.getElementById("app") || (() => {
       const container = document.createElement('div');
       container.id = "app";
-      document.body.appendChild(container)
       return container;
     })()
 
+    this._init();
   };
 
-  resize(h) {
-    this.appContainer.style.height = h;
-  }
-
-  init() {
+  // Создаем элементы приложения, и добавляем их на страницу
+  _init() {
+    document.body.appendChild(this.appContainer);
     this.resize(this.tg.viewportStableHeight);
     if (!Array.isArray(this.content)) this.content = [this.content];
     if (!this.content.length) {
-      return this.appContainer.innerHTML = "<h2>Is empty app</h2>"
+      this.isEmpty = true;
+      this.appContainer.innerHTML = "<h2>Is empty!</h2>"
+      return;
     }
 
     const frag = new DocumentFragment();
     for (const block of this.content) {
+      if (!block instanceof HTMLElement) continue;
       frag.appendChild(block);
     }
     this.appContainer.appendChild(frag);
   }
+
+  // установка высоты контейнера приложения
+  resize(h) {
+    this.appContainer.style.height = h;
+  }
+
+  add(block) {
+    if (!block instanceof HTMLElement) throw new Error("Block is not istance HTMLElement");
+    if (this.isEmpty) {
+      this.appContainer.innerHTML = "";
+      this.isEmpty = false;
+    }
+    this.appContainer.appendChild(block)
+  }
+
 }
