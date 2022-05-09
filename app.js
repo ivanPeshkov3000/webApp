@@ -1,6 +1,5 @@
 class App {
   constructor(content = [], tgWorkspace = window.Telegram.WebApp) {
-    if (!window || !window.length) throw new Error("Window object not detected")
     this.tg = tgWorkspace || (() => {
       throw new Error("Not load Telegram WebApp")
     })()
