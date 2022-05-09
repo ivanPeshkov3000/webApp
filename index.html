@@ -21,7 +21,7 @@
         const contentBlock = document.createElement('div');
         contentBlock.id = "content";
 
-        for (const item of window) {
+        for (const item in window) {
           contentBlock.appendChild(createH3(item));
         }
         app.add(contentBlock);
