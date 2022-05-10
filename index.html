@@ -22,33 +22,40 @@
       const App = {
         data() {
           return {
-            message: "Lool ;)"
+            message: `Привет, ${user.first_name} ${user.last_name}`,
           }
+        },
+        computed: {
+
         }
       }
 
-      Vue.createApp(App).mount('#app');
+      const vm = Vue.createApp(App).mount('#app');
 
-      mainbtn.setText("Hey you!");
-      mainbtn.onClick(() => {
-        const mainh3 = document.getElementById("main").getElementsByTagName('h3')[0];
-        mainh3.innerText = user.first_name;
-
-        const menu = document.getElementById("menubar");
-        const btn = document.createElement('button');
-        btn.id = "cmnbtn";
-        btn.innerText = "Кнопа";
-
-        btn.addEventListener('click', e => {
-          const mainsect = document.getElementById('main');
-          const paragraph = document.createElement('p');
-          paragraph.innerText = Object.keys(user);
-          mainsect.appendChild(paragraph);
-        })
-
-        menu.appendChild(btn);
-      })
+      mainbtn.setText("Играть");
       mainbtn.show();
+
+      mainbtn.onClick(() => {
+        vm.message =  "Игра начинается..";
+
+
+        setTimeout(() => {
+          const menu = document.getElementById("menubar");
+          const btn = document.createElement('button');
+          btn.id = "cmnbtn";
+          btn.innerText = "Кнопа";
+
+          btn.addEventListener('click', e => {
+            const mainsect = document.getElementById('main');
+            const paragraph = document.createElement('p');
+            paragraph.innerText = Object.keys(user);
+            mainsect.appendChild(paragraph);
+          })
+
+          menu.appendChild(btn);
+          mainbtn.hide();
+        }, 3000)
+      })
     })()
   </script>
 </body>

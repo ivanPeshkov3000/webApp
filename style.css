@@ -2,8 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  width: 100%;
-  min-height: 100%;
 }
 
 body {
@@ -12,6 +10,13 @@ body {
   justify-items: center;
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
+  width: 100%;
+  min-height: 100%;
+}
+
+section.main {
+  display: grid;
+  justify-items: center;
 }
 
 a {
