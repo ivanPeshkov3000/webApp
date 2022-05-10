@@ -5,34 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebApp</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
   <script src="./app.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div id="app" class="app"></div>
+<body id="app" class="app">
+  <section class="main"></section>
+  <section class="bar"></section>
   <script>
     (()=>{
-      const app = new App();
-      
-      const but = document.createElement('button');
-      but.className = "cmn";
-      but.innerText = "Кнопа";
-      but.addEventListener('click', (e) => {
-        const contentBlock = document.createElement('div');
-        contentBlock.id = "content";
-
-        for (const item in window) {
-          contentBlock.appendChild(createH3(item));
+      const tgWebApp = window.Telegram.WebApp;
+      const mainbtn = tgWebApp.MainButton;
+      const App = {
+        data() {
+          return {
+            scene: ""
+          }
         }
-        app.add(contentBlock);
-      })
-      app.add(but);
-
-      function createH3(text) {
-        const h3 = document.createElement('h3');
-        h3.innerText = text;
-        return h3;
       }
+
+      Vue.createApp(App).mount('#app');
+
+      mainbtn.setText("Hey you!");
+      mainbtn.enable();
     })()
   </script>
 </body>

@@ -1,12 +1,16 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
 }
 
 body {
-  display: flex;
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+  justify-items: center;
   align-items: center;
-  align-self: center;
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
 }
@@ -16,10 +20,12 @@ a {
 }
 
 button {
+  margin: auto;
   border: 0;
   border-radius: 5%;
   background: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
   width: 10rem;
   height: 10vh;
+  cursor: pointer;
 }
