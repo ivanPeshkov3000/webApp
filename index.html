@@ -42,7 +42,7 @@
         btn.addEventListener('click', e => {
           const mainsect = document.getElementById('main');
           const paragraph = document.createElement('p');
-          paragraph.innerText = user.toString();
+          paragraph.innerText = Object.keys(user);
           mainsect.appendChild(paragraph);
         })
 
