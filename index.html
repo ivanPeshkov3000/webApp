@@ -6,6 +6,9 @@
   <title>WebApp</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.3.2/browser/pixi.min.js"
+    integrity="sha512-EVCNmfNo+YIhbDBPOUFKKeE7eyYTQfE+ezyz//doyu3p1rVxYonmV58S1gvYlfzSSTJsMPNwJFVv6YGypFBXKw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./app.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -36,8 +39,30 @@
       mainbtn.show();
 
       mainbtn.onClick(() => {
+        const msgs = [
+          "Игра начинается",
+          "Игра начинается.",
+          "Игра начинается..",
+          "Игра начинается...",
+        ]
         vm.message =  "Игра начинается..";
 
+        let cool = true;
+        function* genAnimation(arr) {
+          for (let val of arr) {
+            yield val
+          }
+        }
+
+        let generate = genLol(arr);
+
+        const interval = setInterval(() => {
+          let nxt = generate.next()
+          if (nxt.done) return generate = genLol(arr);
+          if (!cool) clearInterval(interval);
+
+          vm.message = nxt.value;
+        }, 400)
 
         setTimeout(() => {
           const menu = document.getElementById("menubar");
@@ -52,6 +77,7 @@
             mainsect.appendChild(paragraph);
           })
 
+          cool = false;
           menu.appendChild(btn);
           mainbtn.hide();
         }, 3000)
