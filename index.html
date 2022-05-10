@@ -45,7 +45,6 @@
           "Игра начинается..",
           "Игра начинается...",
         ]
-        vm.message =  "Игра начинается..";
 
         let cool = true;
         function* genAnimation(arr) {
@@ -54,11 +53,11 @@
           }
         }
 
-        let generate = genLol(arr);
+        let generate = genAnimation(msgs);
 
         const interval = setInterval(() => {
           let nxt = generate.next()
-          if (nxt.done) return generate = genLol(arr);
+          if (nxt.done) return generate = genAnimation(msgs);
           if (!cool) clearInterval(interval);
 
           vm.message = nxt.value;
