@@ -3,14 +3,13 @@
   padding: 0;
   box-sizing: border-box;
   width: 100%;
-  min-height: 100vh;
+  min-height: 10vh;
 }
 
 body {
   display: grid;
   grid-template-rows: 5fr 1fr;
   justify-items: center;
-  align-items: center;
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
 }
