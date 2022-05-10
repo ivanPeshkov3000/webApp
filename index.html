@@ -10,16 +10,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body id="app" class="app">
-  <section class="main"></section>
-  <section class="bar"></section>
+  <section id="main" class="main">
+    <h3>{{ msg }}</h3>
+  </section>
+  <section class="menubar"></section>
   <script>
     (()=>{
       const tgWebApp = window.Telegram.WebApp;
       const mainbtn = tgWebApp.MainButton;
+      const user = tgWebApp.initDataUnsafe.user;
       const App = {
         data() {
           return {
-            scene: ""
+            message: ""
           }
         }
       }
@@ -27,7 +30,11 @@
       Vue.createApp(App).mount('#app');
 
       mainbtn.setText("Hey you!");
-      mainbtn.enable();
+      mainbtn.onClick(() => {
+        const mainh3 = document.getElementById("main").getElementsByTagName('h3')[0];
+        mainh3.innerText = user.first_name;
+      })
+      mainbtn.show();
     })()
   </script>
 </body>
