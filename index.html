@@ -11,7 +11,7 @@
 </head>
 <body id="app" class="app">
   <section id="main" class="main">
-    <h3>{{ msg }}</h3>
+    <h3>{{ message }}</h3>
   </section>
   <section class="menubar"></section>
   <script>
@@ -22,7 +22,7 @@
       const App = {
         data() {
           return {
-            message: ""
+            message: "Lool ;)"
           }
         }
       }
@@ -33,6 +33,20 @@
       mainbtn.onClick(() => {
         const mainh3 = document.getElementById("main").getElementsByTagName('h3')[0];
         mainh3.innerText = user.first_name;
+
+        const menu = document.getElementById("menubar");
+        const btn = document.createElement('button');
+        btn.id = "cmnbtn";
+        btn.innerText = "Кнопа";
+
+        btn.addEventListener('click', e => {
+          const mainsect = document.getElementById('main');
+          const paragraph = document.createElement('p');
+          paragraph.innerText = user;
+          mainsect.appendChild(paragraph);
+        })
+
+        menu.appendChild(btn);
       })
       mainbtn.show();
     })()
