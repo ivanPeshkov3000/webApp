@@ -5,36 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebApp</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script src="https://unpkg.com/vue@next"></script>
+  <!-- <script src="https://unpkg.com/vue@next"></script> -->
   <script src="https://pixijs.download/release/pixi.js"></script>
   <script src="./app.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body id="app" class="app">
-  <section id="main" class="main">
-    <h3>{{ message }}</h3>
-  </section>
+  <section id="main" class="main"></section>
   <section id = "menubar" class="menubar"></section>
   <script>
     (()=>{
       const tgWebApp = window.Telegram.WebApp;
       const user = tgWebApp.initDataUnsafe.user;
       const menubar = document.getElementById("menubar");
+      const main = document.getElementById("main");
+      const h3 = document.createElement('h3');
+      main.appendChild(h3);
 
       tgWebApp.expand();
-
-      const App = {
-        data() {
-          return {
-            message: `Привет, ${user.first_name} ${user.last_name}`,
-          }
-        },
-        computed: {
-
-        }
-      }
-
-      const vm = Vue.createApp(App).mount('#app');
 
       const btn = document.createElement('button');
       btn.id = "cmnbtn";
@@ -60,12 +48,12 @@
         const interval = setInterval(() => {
           let nxt = generate.next()
           if (nxt.done) return generate = genAnimation(msgs);
-          vm.message = nxt.value;
+          h3.innerText = nxt.value;
         }, 400)
 
         setTimeout(() => {
           clearInterval(interval);
-          vm.message = "";
+          h3.innerText = "";
 
           btn.id = "cmnbtn";
           btn.innerText = "Кнопа";
