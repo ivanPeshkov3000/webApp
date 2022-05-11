@@ -1,6 +1,6 @@
 function tetrisRun() {
   let width = window.outerWidth; //получаем ширину экрана
-  let height = window.Telegram.WebApp.viewportHeight; // получаем высоту экрана
+  let height = window.Telegram.WebApp.viewportStableHeight; // получаем высоту экрана
   const color = 0xABACCC;
 
   const app = new PIXI.Application({ width, height, backgroundColor: 0xF1F1C2
