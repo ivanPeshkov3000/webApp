@@ -1,9 +1,9 @@
 function tetrisRun() {
   let width = window.outerWidth; //получаем ширину экрана
-  let height = window.Talegram.WebApp.viewportHeight; // получаем высоту экрана
-  const color = 0xFBACCC;
+  let height = window.Telegram.WebApp.viewportHeight; // получаем высоту экрана
+  const color = 0xABACCC;
 
-  const app = new PIXI.Application({ width, height, backgroundColor: 0xFFBBC2
+  const app = new PIXI.Application({ width, height, backgroundColor: 0xF1F1C2
 }); //создаем холст
   const appContainer = document.getElementById("main");
   appContainer.innerHTML = "";
@@ -22,6 +22,6 @@ function tetrisRun() {
 
   const gravity = 2;
   app.ticker.add(() => {
-    pixel.x += gravity;
+    pixel.y += gravity;
   });
 }
