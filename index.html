@@ -58,7 +58,10 @@
           btn.id = "cmnbtn";
           btn.innerText = "В цвет!";
           btn.removeEventListener('click', loadGame);
-          btn.addEventListener('click', randcolRect);
+          btn.addEventListener('click', () => {
+            console.log("loal");
+            randcolRect();
+            });
 
           tetrisRun();
         }, 3000)

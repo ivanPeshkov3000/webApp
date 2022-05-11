@@ -22,14 +22,16 @@ function tetrisRun() {
   app.stage.addChild(pixel); //выводим на холсте
 
   randcolRect = () => {
-    pixel.beginFill(randomColor(), 1)
+    const rndm = randomColor();
+    pixel.beginFill(rndm);
     pixel.endFill();
+
   }
 
   const gravity = 0.5;
   app.ticker.add(function getDown() {
-    if ((pixel.x + pixel.height/2) > app.view.height) {
-      app.ticker.remove(getDown);
+    if ((pixel.y + pixel.height) > app.view.height) {
+      return app.ticker.remove(getDown);
     }
     pixel.y += gravity;
   });
