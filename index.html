@@ -20,6 +20,9 @@
       const tgWebApp = window.Telegram.WebApp;
       const mainbtn = tgWebApp.MainButton;
       const user = tgWebApp.initDataUnsafe.user;
+
+      tgWebApp.expand();
+
       const App = {
         data() {
           return {
@@ -75,8 +78,8 @@
           })
 
           menu.appendChild(btn);
-          tetrisRun();
           mainbtn.hide();
+          tetrisRun();
         }, 3000)
       })
     })()
