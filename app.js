@@ -9,12 +9,10 @@ function tetrisRun() {
   const pixel = new PIXI.Graphics(); //создаем новый графический элемент
   pixel.lineStyle(0); //начинаем рисовать
   pixel.beginFill(color, 1); //задаем цвет
-  pixel.drawRect() // рисуем квадрат
+  pixel.drawRect(app.renderer.width / 2, 0, 20, 20) // рисуем квадрат
   pixel.endFill(); //закончили отрисовку
   pixel.interactive = true; //делаем интерактивным
   pixel.buttonMode = true; //меняем курсор при наведении
-  pixel.x = app.renderer.width / 2; // задаем положение
-  pixel.y = 0; // задаем положение
   app.stage.addChild(pixel); //выводим на холсте
 
 
