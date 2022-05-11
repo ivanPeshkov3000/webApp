@@ -1,9 +1,10 @@
 function tetrisRun() {
-  let width = window.innerWidth; //получаем ширину экрана
-  let height = window.innerHeight; // получаем высоту экрана
+  let width = window.outerWidth; //получаем ширину экрана
+  let height = window.Talegram.WeabApp.viewportHeight; // получаем высоту экрана
   const color = '#fbafcc';
 
-  const app = new PIXI.Application(width, height); //создаем холст
+  const app = new PIXI.Application({ width, height, backgroundColor: 0xFFFFFF
+}); //создаем холст
   const appContainer = document.getElementById("main");
   appContainer.innerHTML = "";
   appContainer.appendChild(app.view); //выводим его в тело страницы
