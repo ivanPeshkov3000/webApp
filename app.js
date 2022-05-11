@@ -1,6 +1,6 @@
 function tetrisRun() {
   let width = window.outerWidth; //получаем ширину экрана
-  let height = window.Talegram.WeabApp.viewportHeight; // получаем высоту экрана
+  let height = window.Talegram.WebApp.viewportHeight; // получаем высоту экрана
   const color = 0xFBACCC;
 
   const app = new PIXI.Application({ width, height, backgroundColor: 0xFFBBC2
