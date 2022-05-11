@@ -56,16 +56,9 @@
           h3.innerText = "";
 
           btn.id = "cmnbtn";
-          btn.innerText = "Кнопа";
+          btn.innerText = "В цвет!";
           btn.removeEventListener('click', loadGame);
-          btn.addEventListener('click', e => {
-            const mainsect = document.getElementById('main');
-            const paragraph = document.createElement('p');
-            for (let val of mainsect.querySelectorAll('*').values()) {
-              paragraph.innerText += val;
-            }
-            mainsect.appendChild(paragraph);
-          })
+          btn.addEventListener('click', randcolRect);
 
           tetrisRun();
         }, 3000)
