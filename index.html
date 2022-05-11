@@ -18,8 +18,8 @@
   <script>
     (()=>{
       const tgWebApp = window.Telegram.WebApp;
-      const mainbtn = tgWebApp.MainButton;
       const user = tgWebApp.initDataUnsafe.user;
+      const menubar = document.getElementById("menubar");
 
       tgWebApp.expand();
 
@@ -36,10 +36,12 @@
 
       const vm = Vue.createApp(App).mount('#app');
 
-      mainbtn.setText("Играть");
-      mainbtn.show();
+      const btn = document.createElement('button');
+      btn.id = "cmnbtn";
+      btn.innerText = "Кнопа";
+      menubar.appendChild(btn);
 
-      mainbtn.onClick(() => {
+      function loadGame() {
         const msgs = [
           "Игра начинается",
           "Игра начинается.",
@@ -65,23 +67,23 @@
           clearInterval(interval);
           vm.message = "";
 
-          const menu = document.getElementById("menubar");
-          const btn = document.createElement('button');
           btn.id = "cmnbtn";
           btn.innerText = "Кнопа";
-
+          btn.removeEventListener('click', loadGame);
           btn.addEventListener('click', e => {
             const mainsect = document.getElementById('main');
             const paragraph = document.createElement('p');
-            paragraph.innerText = mainsect.querySelectorAll('*').keys();
+            for (let val of mainsect.querySelectorAll('*').values()) {
+              paragraph.innerText += val;
+            }
             mainsect.appendChild(paragraph);
           })
 
-          menu.appendChild(btn);
-          mainbtn.hide();
           tetrisRun();
         }, 3000)
-      })
+      }
+
+      btn.addEventListener('click', loadGame)
     })()
   </script>
 </body>
