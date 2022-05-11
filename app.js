@@ -4,7 +4,9 @@ function tetrisRun() {
   const color = '#fbafcc';
 
   const app = new PIXI.Application(width, height); //создаем холст
-  document.getElementById("main").appendChild(app.view); //выводим его в тело страницы
+  const appContainer = document.getElementById("main");
+  appContainer.innerHTML = "";
+  appContainer.appendChild(app.view); //выводим его в тело страницы
 
   const pixel = new PIXI.Graphics(); //создаем новый графический элемент
   pixel.lineStyle(0); //начинаем рисовать

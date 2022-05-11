@@ -55,10 +55,12 @@
 
         const interval = setInterval(() => {
           let nxt = generate.next()
-          if (nxt.done) return generate = genAnimation(msgs);
-          if (!cool) clearInterval(interval);
-
           vm.message = nxt.value;
+          if (nxt.done) return generate = genAnimation(msgs);
+          if (!cool) {
+            vm.message = "";
+            clearInterval(interval);
+          }
         }, 400)
 
         setTimeout(() => {
@@ -75,7 +77,6 @@
           })
 
           cool = false;
-          vm.message = ""
 
           menu.appendChild(btn);
           tetrisRun();
