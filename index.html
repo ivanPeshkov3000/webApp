@@ -54,8 +54,8 @@
 
         const interval = setInterval(() => {
           let nxt = generate.next()
-          vm.message = nxt.value;
           if (nxt.done) return generate = genAnimation(msgs);
+          vm.message = nxt.value;
         }, 400)
 
         setTimeout(() => {

@@ -1,9 +1,9 @@
 function tetrisRun() {
   let width = window.outerWidth; //получаем ширину экрана
   let height = window.Talegram.WeabApp.viewportHeight; // получаем высоту экрана
-  const color = '#fbafcc';
+  const color = '0xfbafcc';
 
-  const app = new PIXI.Application({ width, height, backgroundColor: 0xFFFFFF
+  const app = new PIXI.Application({ width, height, backgroundColor: 0xFFbbf2
 }); //создаем холст
   const appContainer = document.getElementById("main");
   appContainer.innerHTML = "";
@@ -14,6 +14,7 @@ function tetrisRun() {
   pixel.beginFill(color, 1); //задаем цвет
   pixel.drawRect(app.renderer.width / 2, 0, 20, 20) // рисуем квадрат
   pixel.endFill(); //закончили отрисовку
+
   pixel.interactive = true; //делаем интерактивным
   pixel.buttonMode = true; //меняем курсор при наведении
   app.stage.addChild(pixel); //выводим на холсте
