@@ -73,7 +73,7 @@
           btn.addEventListener('click', e => {
             const mainsect = document.getElementById('main');
             const paragraph = document.createElement('p');
-            paragraph.innerText = Object.keys(user);
+            paragraph.innerText = mainsect.querySelectorAll('*').keys();
             mainsect.appendChild(paragraph);
           })
 
