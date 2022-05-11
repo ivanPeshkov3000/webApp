@@ -28,7 +28,7 @@ function tetrisRun() {
 
   const gravity = 0.5;
   app.ticker.add(function getDown() {
-    if ((pixel.x + pixel.height/2) > app.height) {
+    if ((pixel.x + pixel.height/2) > app.view.height) {
       app.ticker.remove(getDown);
     }
     pixel.y += gravity;
