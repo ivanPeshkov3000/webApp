@@ -46,12 +46,9 @@
 
         let cool = true;
         function* genAnimation(arr) {
-          arr.forEach((val, i) => {
+          for (let val of arr) {
             yield val
-          })
-          //for (let val of arr) {
-          //  yield val
-          //}
+          }
         }
 
         let generate = genAnimation(msgs);
@@ -78,7 +75,10 @@
           })
 
           cool = false;
+          vm.message = ""
+
           menu.appendChild(btn);
+          tetrisRun();
           mainbtn.hide();
         }, 3000)
       })
