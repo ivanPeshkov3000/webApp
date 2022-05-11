@@ -1,9 +1,9 @@
 function tetrisRun() {
   let width = window.outerWidth; //получаем ширину экрана
   let height = window.Talegram.WeabApp.viewportHeight; // получаем высоту экрана
-  const color = '0xfbafcc';
+  const color = 0xFBACCC;
 
-  const app = new PIXI.Application({ width, height, backgroundColor: 0xFFbbf2
+  const app = new PIXI.Application({ width, height, backgroundColor: 0xFFBBC2
 }); //создаем холст
   const appContainer = document.getElementById("main");
   appContainer.innerHTML = "";
