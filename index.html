@@ -44,7 +44,6 @@
           "Игра начинается...",
         ]
 
-        let cool = true;
         function* genAnimation(arr) {
           for (let val of arr) {
             yield val
@@ -57,13 +56,12 @@
           let nxt = generate.next()
           vm.message = nxt.value;
           if (nxt.done) return generate = genAnimation(msgs);
-          if (!cool) {
-            vm.message = "";
-            clearInterval(interval);
-          }
         }, 400)
 
         setTimeout(() => {
+          clearInterval(interval);
+          vm.message = "";
+
           const menu = document.getElementById("menubar");
           const btn = document.createElement('button');
           btn.id = "cmnbtn";
@@ -75,8 +73,6 @@
             paragraph.innerText = Object.keys(user);
             mainsect.appendChild(paragraph);
           })
-
-          cool = false;
 
           menu.appendChild(btn);
           tetrisRun();
